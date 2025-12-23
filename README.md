@@ -1,12 +1,12 @@
-# Legal Chatbot (Local-first)
+# Legal Chatbot
 
-> **로컬에서 구동되는 프라이버시 중심의 법률 챗봇 시스템**
+> **법률 챗봇 시스템**
 
 Legal Chatbot은 고성능 벡터 검색(Vector Search)과 로컬 LLM을 결합하여, 법률 질문에 대해 검증 가능하고 할루시네이션(Hallucination)이 최소화된 답변을 제공하는 프로젝트입니다. 모든 데이터와 모델이 로컬 환경에서 안전하게 구동되도록 설계되었습니다.
 
 ## 🌟 주요 특징
 
-*   **🔒 Local-First & Privacy**: 외부 API 의존 없이 Ollama(LLM), Chroma(Vector DB)를 활용하여 로컬에서 완벽하게 동작합니다.
+*   **🔒 Local Environment**: 외부 API 의존 없이 Ollama(LLM), Chroma(Vector DB)를 활용하여 로컬에서 완벽하게 동작합니다.
 *   **🎯 High-Precision Retrieval**: 
     *   **Deep Semantic Search**: 문맥적 의미를 파악하는 Dense Vector 검색을 수행합니다.
     *   **Reranking**: 검색된 후보군을 정밀하게 재순위화하여 최적의 법적 근거를 선별합니다.

@@ -13,7 +13,7 @@ style: |
 ---
 
 # Legal Chatbot
-## Local-first Privacy-focused Legal Chatbot
+## Legal Chatbot
 
 **검증 가능한 법률 챗봇 어시스턴트**
 
@@ -22,11 +22,11 @@ style: |
 # 1. 프로젝트 개요
 
 ## Vision
-**"Legal Chatbot (Local-first)"**
-고성능 벡터 검색과 로컬 LLM을 결합하여, **검증 가능하고 근거가 확실한** 법률 답변을 제공하는 로컬 우선 챗봇 시스템
+**"Legal Chatbot"**
+고성능 벡터 검색과 로컬 LLM을 결합하여, **검증 가능하고 근거가 확실한** 법률 답변을 제공하는 챗봇 시스템
 
 ## 핵심 가치
-*   🔒 **Local-First**: 데이터 유출 걱정 없는 로컬 환경 (Ollama, Chroma)
+*   🔒 **Local Environment**: 데이터 유출 걱정 없는 로컬 환경 (Ollama, Chroma)
 *   🎯 **High-Precision**: Dense Retrieval + Reranking으로 정확도 향상
 *   ⚖️ **Verifiable**: 엄격한 출처(법령/조문) 인용 강제
 
@@ -34,7 +34,7 @@ style: |
 
 # 2. 핵심 목표
 
-1.  **로컬 보안 (Privacy)**
+1.  **로컬 보안**
     *   모든 인프라를 로컬 머신에서 구동
     *   민감한 법률/내부 문서 보호
 

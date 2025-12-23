@@ -1,12 +1,12 @@
 # Legal Chatbot 프로젝트 PRD
 
 ## 1. 프로젝트 개요
-*   **제품명**: Legal Chatbot (Local-first)
-*   **비전**: 고성능 벡터 검색(Vector Search)과 메타데이터 필터링을 결합하여, 검증 가능하고 근거가 확실한 법률 답변을 제공하는 로컬 우선, 프라이버시 중심의 Chatbot 시스템.
+*   **제품명**: Legal Chatbot
+*   **비전**: 고성능 벡터 검색(Vector Search)과 메타데이터 필터링을 결합하여, 검증 가능하고 근거가 확실한 법률 답변을 제공하는 Chatbot 시스템.
 *   **핵심 가치**: "로컬에서 빠르고 정확하게 돌아가는 Legal Chatbot." 법령/판례 데이터를 정교하게 청킹(Chunking)하고 벡터 유사도와 리랭킹(Reranking)을 통해 최적의 법적 근거를 찾아냄.
 
 ## 2. 핵심 목표
-*   **로컬 우선 아키텍처 (Local-First)**: 프라이버시 보호와 데이터 유출 방지를 위해 모든 인프라(Ollama, ChromaDB, 내장 임베딩 모델)를 로컬에서 구동.
+*   **로컬 우선 아키텍처**: 데이터 유출 방지를 위해 인프라(Ollama, ChromaDB, 내장 임베딩 모델)를 로컬에서 구동.
 *   **고정밀 벡터 검색 (High-Precision Vector Retrieval)**: Dense Retrieval(임베딩)과 Reranking을 결합하여 문맥적 유사성이 높은 조문과 판례를 검색.
 *   **검증 가능한 생성 (Verifiable Generation)**: LLM 출력을 엄격히 제어하여 반드시 인용(법령/조문/판례)을 포함하게 하고, 사용자가 출처를 검증할 수 있도록 함.
 *   **자동화된 평가 (Automated Evaluation)**: 검색 품질(Hit@K, MRR)과 생성 품질(인용률, 근거 기반성)을 측정하는 파이프라인 구축.
