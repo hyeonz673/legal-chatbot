@@ -1,16 +1,15 @@
-# Legal GraphRAG (Local-first)
+# Legal Vector RAG (Local-first)
 
-> **로컬에서 구동되는 프라이버시 중심의 법률 하이브리드 RAG 시스템**
+> **로컬에서 구동되는 프라이버시 중심의 법률 벡터 RAG 시스템**
 
-Legal GraphRAG는 법률 지식 그래프(Knowledge Graph)와 벡터 검색(Vector Search)을 결합하여, 법률 질문에 대해 검증 가능하고 할루시네이션(Hallucination)이 최소화된 답변을 제공하는 프로젝트입니다. 모든 데이터와 모델이 로컬 환경에서 안전하게 구동되도록 설계되었습니다.
+Legal Vector RAG는 고성능 벡터 검색(Vector Search)과 로컬 LLM을 결합하여, 법률 질문에 대해 검증 가능하고 할루시네이션(Hallucination)이 최소화된 답변을 제공하는 프로젝트입니다. 모든 데이터와 모델이 로컬 환경에서 안전하게 구동되도록 설계되었습니다.
 
 ## 🌟 주요 특징
 
-*   **🔒 Local-First & Privacy**: 외부 API 의존 없이 Ollama(LLM), Neo4j Desktop(Graph), Chroma(Vector)를 활용하여 로컬에서 완벽하게 동작합니다.
-*   **🕸️ Hybrid Retrieval**: 
-    *   **Graph Traversal**: 법령-조문-판례 간의 연결 구조를 따라 명확한 법적 근거를 탐색합니다.
-    *   **Vector Search**: 의미론적 유사도를 기반으로 관련 문맥을 찾아냅니다.
-    *   이 두 가지를 결합(Fusion)하여 높은 재현율(Recall)과 정밀도(Precision)를 동시에 달성합니다.
+*   **🔒 Local-First & Privacy**: 외부 API 의존 없이 Ollama(LLM), Chroma(Vector DB)를 활용하여 로컬에서 완벽하게 동작합니다.
+*   **🎯 High-Precision Retrieval**: 
+    *   **Deep Semantic Search**: 문맥적 의미를 파악하는 Dense Vector 검색을 수행합니다.
+    *   **Reranking**: 검색된 후보군을 정밀하게 재순위화하여 최적의 법적 근거를 선별합니다.
 *   **📝 Verifiable Citations**: LLM이 생성한 답변에 반드시 실제 법령/조문/판례의 출처를 명시하도록 강제하여 신뢰성을 보장합니다.
 
 ## 🏗️ 아키텍처
@@ -18,18 +17,16 @@ Legal GraphRAG는 법률 지식 그래프(Knowledge Graph)와 벡터 검색(Vect
 ```mermaid
 graph TD
     subgraph "Data Pipeline (ETL)"
-        RAW[법령 API/PDF] -->|Ingest| NORM[정규화 (Law/Article)]
-        NORM -->|Build| KG[(Neo4j Graph DB)]
-        NORM -->|Chunking| VEC[(Chroma Vector DB)]
-        KG <-->|Linking| VEC
+        RAW[법령 API/PDF] -->|Ingest| NORM[정규화]
+        NORM -->|Chunking + Meta| CHUNK[Document Chunks]
+        CHUNK -->|Embedding| VEC[(Chroma Vector DB)]
     end
 
     subgraph "Retrieval & Generation (RAG)"
-        Q[User Query] -->|Extract| ENT[Entity/Keyword]
-        ENT -->|Traverse| KG_RES[Graph Context]
-        Q -->|Vector Search| VEC_RES[Vector Context]
+        Q[User Query] -->|Embedding| Q_VEC[Query Vector]
+        Q_VEC -->|Vector Search| CAND[Candidate Chunks]
+        CAND -->|Rerank| CTX[Top-K Context]
         
-        KG_RES & VEC_RES -->|Fusion & Rerank| CTX[Top-K Context]
         CTX -->|Prompt| LLM[Local LLM (Ollama)]
         LLM -->|Generate| ANS[Answer w/ Citation]
     end
@@ -41,7 +38,6 @@ graph TD
 | --- | --- | --- |
 | **Language** | Python 3.10+ | |
 | **LLM** | Ollama | Llama 3, Qwen 2.5 등 사용 |
-| **Graph DB** | Neo4j Desktop | 지식 그래프 저장소 |
 | **Vector DB** | Chroma | 임베딩 벡터 저장소 |
 | **Embedding** | bge-m3 / e5 | 로컬 임베딩 모델 |
 | **Framework** | FastAPI / Streamlit | 백엔드 및 UI |
@@ -49,9 +45,8 @@ graph TD
 ## 🚀 시작하기 (Getting Started)
 
 ### 사전 요구사항 (Prerequisites)
-1.  **[Neo4j Desktop](https://neo4j.com/download/)** 설치 및 실행
-2.  **[Ollama](https://ollama.com/)** 설치 및 모델 다운로드 (`ollama pull llama3`)
-3.  Python 3.10 이상
+1.  **[Ollama](https://ollama.com/)** 설치 및 모델 다운로드 (`ollama pull llama3`)
+2.  Python 3.10 이상
 
 ### 설치 (Installation)
 
@@ -74,7 +69,7 @@ source venv/bin/activate  # Mac/Linux
 1.  **데이터 수집 및 적재**
     ```bash
     python pipeline/ingest_api.py
-    python pipeline/build_graph.py
+    python pipeline/index_docs.py
     ```
 
 2.  **웹 인터페이스 실행**
@@ -90,7 +85,7 @@ legal-graph-rag/
 ├── docs/               # 문서 (PRD, Ideation, Task)
 ├── pipeline/           # ETL 파이프라인 스크립트
 │   ├── ingest_api.py
-│   └── build_graph.py
+│   └── index_docs.py
 ├── rag/                # RAG 검색 및 생성 로직
 └── app.py              # Streamlit UI 진입점
 ```
