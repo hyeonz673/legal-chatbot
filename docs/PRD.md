@@ -1,9 +1,9 @@
-# Legal Chatbot 프로젝트 PRD
+# Legal AI Chatbot 프로젝트 PRD
 
 ## 1. 프로젝트 개요
-*   **제품명**: Legal Chatbot
+*   **제품명**: Legal AI Chatbot
 *   **비전**: 고성능 벡터 검색(Vector Search)과 메타데이터 필터링을 결합하여, 검증 가능하고 근거가 확실한 법률 답변을 제공하는 Chatbot 시스템.
-*   **핵심 가치**: "로컬에서 빠르고 정확하게 돌아가는 Legal Chatbot." 법령/판례 데이터를 정교하게 청킹(Chunking)하고 벡터 유사도와 리랭킹(Reranking)을 통해 최적의 법적 근거를 찾아냄.
+*   **핵심 가치**: "로컬에서 빠르고 정확하게 돌아가는 Legal AI Chatbot." 법령/판례 데이터를 정교하게 청킹(Chunking)하고 벡터 유사도와 리랭킹(Reranking)을 통해 최적의 법적 근거를 찾아냄.
 
 ## 2. 핵심 목표
 *   **로컬 우선 아키텍처**: 데이터 유출 방지를 위해 인프라(Ollama, ChromaDB, 내장 임베딩 모델)를 로컬에서 구동.

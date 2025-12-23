@@ -12,8 +12,8 @@ style: |
   strong { color: #0066cc; }
 ---
 
-# Legal Chatbot
-## Legal Chatbot
+# Legal AI Chatbot
+## Legal AI Chatbot
 
 **검증 가능한 법률 챗봇 어시스턴트**
 
@@ -22,7 +22,7 @@ style: |
 # 1. 프로젝트 개요
 
 ## Vision
-**"Legal Chatbot"**
+**"Legal AI Chatbot"**
 고성능 벡터 검색과 로컬 LLM을 결합하여, **검증 가능하고 근거가 확실한** 법률 답변을 제공하는 챗봇 시스템
 
 ## 핵심 가치
