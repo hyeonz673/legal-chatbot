@@ -132,4 +132,4 @@ style: |
 
 **질문 있으신가요?**
 
-*GitHub: https://github.com/hyeonz673/legal-graph-rag*
+*GitHub: https://github.com/hyeonz673/legal-chatbot*
