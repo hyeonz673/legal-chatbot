@@ -1,4 +1,4 @@
-# Legal Vector RAG 프로젝트 작업 목록
+# Legal Chatbot 프로젝트 작업 목록
 
 이 문서는 `docs/PRD.md`에 정의된 요구사항과 로드맵을 기반으로 작성된 상세 개발 작업 목록입니다.
 

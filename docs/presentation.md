@@ -12,18 +12,18 @@ style: |
   strong { color: #0066cc; }
 ---
 
-# Legal Vector RAG
-## Local-first Privacy-focused Legal RAG
+# Legal Chatbot
+## Local-first Privacy-focused Legal Chatbot
 
-**검증 가능한 법률 벡터 검색 어시스턴트**
+**검증 가능한 법률 챗봇 어시스턴트**
 
 ---
 
 # 1. 프로젝트 개요
 
 ## Vision
-**"Legal Vector RAG (Local-first)"**
-고성능 벡터 검색과 로컬 LLM을 결합하여, **검증 가능하고 근거가 확실한** 법률 답변을 제공하는 로컬 우선 RAG 시스템
+**"Legal Chatbot (Local-first)"**
+고성능 벡터 검색과 로컬 LLM을 결합하여, **검증 가능하고 근거가 확실한** 법률 답변을 제공하는 로컬 우선 챗봇 시스템
 
 ## 핵심 가치
 *   🔒 **Local-First**: 데이터 유출 걱정 없는 로컬 환경 (Ollama, Chroma)

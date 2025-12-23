@@ -1,8 +1,8 @@
-# Legal Vector RAG (Local-first)
+# Legal Chatbot (Local-first)
 
-> **로컬에서 구동되는 프라이버시 중심의 법률 벡터 RAG 시스템**
+> **로컬에서 구동되는 프라이버시 중심의 법률 챗봇 시스템**
 
-Legal Vector RAG는 고성능 벡터 검색(Vector Search)과 로컬 LLM을 결합하여, 법률 질문에 대해 검증 가능하고 할루시네이션(Hallucination)이 최소화된 답변을 제공하는 프로젝트입니다. 모든 데이터와 모델이 로컬 환경에서 안전하게 구동되도록 설계되었습니다.
+Legal Chatbot은 고성능 벡터 검색(Vector Search)과 로컬 LLM을 결합하여, 법률 질문에 대해 검증 가능하고 할루시네이션(Hallucination)이 최소화된 답변을 제공하는 프로젝트입니다. 모든 데이터와 모델이 로컬 환경에서 안전하게 구동되도록 설계되었습니다.
 
 ## 🌟 주요 특징
 
